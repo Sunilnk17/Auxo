@@ -25,6 +25,10 @@ namespace Auxo.Controllers
         [HttpPost]
         public async Task<IActionResult> PostOrders([FromBody] OrdersRequest ordersRequest)
         {
+            if(ordersRequest == null || ordersRequest.LineItems == null || ordersRequest.LineItems.Count == 0) 
+            {
+                return BadRequest("Mandatory fields are invalid.");
+            }
             var order = await _orderService.PostOrders(ordersRequest);
             return Ok(_mapper.Map<OrderResponse>(order));
         }

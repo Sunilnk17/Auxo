@@ -65,7 +65,7 @@ public class OrderService : IOrderService
 
             var orderWithDetails = _dbContext.Orders.Include(o => o.LineItems)
                                 .ThenInclude(od => od.Parts)
-                                    .FirstOrDefault(o => o.Id == order.Id);
+                                .FirstOrDefault(o => o.Id == order.Id);
 
             return orderWithDetails;
 
