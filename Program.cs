@@ -15,6 +15,10 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Uncomment the following line to use an in-memory database
+// builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//     options.UseInMemoryDatabase("Auxo"));
+
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 
