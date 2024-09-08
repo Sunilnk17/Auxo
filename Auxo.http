@@ -1,0 +1,6 @@
+@Auxo_HostAddress = http://localhost:5182
+
+GET {{Auxo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
